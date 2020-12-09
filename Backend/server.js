@@ -5,20 +5,18 @@ const PORT = 3000;
 const cors = require('cors'); 
 
 // routes 
-// authentication routes 
 const authRoutes = require('./routes/authRoutes'); 
 const categoriesRoutes = require('./routes/categoriesRoutes'); 
 const usersRoutes = require('./routes/usersRoutes'); 
 
 
 //  app.use(express.static(__dirname + '/public'));
-
 app.use(cors()); 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-// here is middleware logic !!!!!!!!!!!!!!!!!!  access control in controllers 
+// here is middleware logic !!!!!!!!!!!!!!!!!!  access control in controllers  
 app.use('./api/auth', authRoutes); 
 app.use('/api/categories', categoriesRoutes);  
 app.use('/api/users ', usersRoutes  );
