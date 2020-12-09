@@ -8,7 +8,6 @@ const subcategorySchema = new Schema({
     }, 
     
    ref: "Product"
-    
 }); 
 
 const subcategoryModel = mongoose.model("Subcategory", subcategorySchema); 

@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 // here is middleware logic !!!!!!!!!!!!!!!!!!  access control in controllers  
 app.use('./api/auth', authRoutes); 
 app.use('/api/categories', categoriesRoutes);  
-app.use('/api/users ', usersRoutes  );
+app.use('/api/users ', usersRoutes  ); 
 
 
 app.use('/', function (req, res) {

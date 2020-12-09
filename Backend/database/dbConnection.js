@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const dbPath = "mongodb://localhost:27017/myapp";
+const dbPath = "mongodb://localhost:27017/everestMindsApp";
 
 mongoose.connect(dbPath, {
     useNewUrlParser: true,
