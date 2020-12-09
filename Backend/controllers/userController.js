@@ -109,7 +109,6 @@ module.exports = {
         return res.status(200).send(products);
         })
     }, 
-
     getSubcategories(req, res, next){
         subcategory.find((err, subcategories) => {
             if (err) return res.status(500).send(err); 
@@ -145,6 +144,5 @@ module.exports = {
             if(err) return res.satus(500).send(err); 
             return res.status(200).send("product  successfully deleted from order"); 
     })
-    }, 
-
+    }
 }
