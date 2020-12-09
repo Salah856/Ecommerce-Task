@@ -9,7 +9,13 @@ const userSchema = new Schema({
     password: {
         type: string, 
         required: true
-    }
+    }, 
+    orders:[
+        {
+            type:Schema.Types.ObjectId, 
+            ref: "Order"
+        }
+    ]
 }); 
 
 const userModel = mongoose.model("User", userSchema); 

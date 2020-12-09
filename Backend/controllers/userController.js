@@ -4,7 +4,12 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('../DB/DBConnectConfig'); 
 
- 
+const category = require('../models/category'); 
+const product = require('../models/product'); 
+const subcategory = require('../models/subcategory'); 
+const order = require('../models/order'); 
+
+
 module.exports = {
     async createUser(req,res){
         const schema = Joi.object({
@@ -92,5 +97,57 @@ module.exports = {
             });
         })
     }, 
+     getCategories (req, res, next){
+        category.find((err, categories) => {
+        if (err) return res.status(500).send(err); 
     
+        return res.status(200).send(categories);
+        })
+    }, 
+     getProducts (req, res, next){
+        product.find((err, products) => {
+        if (err) return res.status(500).send(err); 
+    
+        return res.status(200).send(products);
+        })
+    }, 
+
+    getSubcategories(req, res, next){
+        subcategory.find((err, subcategories) => {
+            if (err) return res.status(500).send(err); 
+            return res.status(200).send(subcategories);
+            })
+    }, 
+    getSubcategory(req, res, next){
+        let subcategoryID = req.params.id; 
+    
+        subcategory.findById(subcategoryID, (err, subcategory)=>{
+            if(err) return res.status(500).send(err); 
+    
+            return res.status(200).send(subcategory); 
+        })
+    }, 
+    getProduct(req, res, next){
+        let productID = req.params.id; 
+        product.findById(categoryID, (err, product)=>{
+            if(err) return res.status(500).send(err); 
+            return res.status(200).send(product); 
+        })
+    }, 
+    addProductToOrder(req, res){
+
+        let addedProduct = new Order(req.body);
+    addedProduct.save((function(err, addedproduct){
+        if(err) return res.status(500).send(err); 
+        return res.status(200).send(`product added successfully`); 
+    }));
+    },  
+    removeProductFromOrder(req, res){
+        let removedProduct = req.params.id; 
+        subcategory.findByIdAndDelete(removedProduct, (err, removedproduct)=>{
+            if(err) return res.satus(500).send(err); 
+            return res.status(200).send("product  successfully deleted from order"); 
+    })
+    }, 
+
 }

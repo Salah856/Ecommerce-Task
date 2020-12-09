@@ -4,7 +4,6 @@ const subcategory = require('../models/subcategory');
 const product = require('../models/product'); 
 const user = require('../models/user'); 
 
-
 // categories actions CRUD ops for admin 
 function getCategories (req, res, next){
     category.find((err, categories) => {
@@ -179,7 +178,7 @@ module.exports = {
         getProducts, 
         deleteProduct, 
         addProduct, 
-        
+
         getUser, 
         getUsers, 
         deleteCategory, 
