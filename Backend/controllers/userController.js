@@ -135,7 +135,6 @@ module.exports = {
         })
     }, 
     addProductToOrder(req, res){
-
         let addedProduct = new Order(req.body);
     addedProduct.save((function(err, addedproduct){
         if(err) return res.status(500).send(err); 
@@ -144,7 +143,7 @@ module.exports = {
     },  
     removeProductFromOrder(req, res){
         let removedProduct = req.params.id; 
-        subcategory.findByIdAndDelete(removedProduct, (err, removedproduct)=>{
+        order.findByIdAndDelete(removedProduct, (err, removedproduct)=>{
             if(err) return res.satus(500).send(err); 
             return res.status(200).send("product  successfully deleted from order"); 
     })
