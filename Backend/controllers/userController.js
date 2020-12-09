@@ -3,12 +3,10 @@ const HttpStatus = require('http-status-codes');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('../DB/DBConnectConfig'); 
-
 const category = require('../models/category'); 
 const product = require('../models/product'); 
 const subcategory = require('../models/subcategory'); 
 const order = require('../models/order'); 
-
 
 module.exports = {
     async createUser(req,res){
